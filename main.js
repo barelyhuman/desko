@@ -1,30 +1,33 @@
 const {app, BrowserWindow} = require('electron')
+const {ipcMain} = require('electron')
 require('electron-reload')(__dirname)
-let win
 
-function createWindow () {
-  win = new BrowserWindow({frame: false,width: 700, height: 600,resizable: false,useContentSize:true})
 
-  win.loadURL(`file://${__dirname}/index.html`)
+app.on('ready', function(){
+  var mainWindow = new BrowserWindow({
+    frame: false,
+    width: 700,
+    height: 600,
+    resizable: false,
+    useContentSize:true,
+    icon : './assets/appIcon.png'})
+    mainWindow.loadURL(`file://${__dirname}/index.html`)
 
-win.webContents.openDevTools()
 
-  win.on('closed', () => {
-    win = null
+  ipcMain.on('show-popup',function(){
+    var popup = new BrowserWindow({
+      frame: false,
+      width:400,
+      height:160,
+      resizable: false,
+    });
+    popup.loadURL('file://'+__dirname+'/popups/installing.html');
   })
-}
-
-app.on('ready', createWindow)
+})
 
 
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
     app.quit()
-  }
-})
-
-app.on('activate', () => {
-  if (win === null) {
-    createWindow()
   }
 })

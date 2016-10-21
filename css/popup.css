@@ -1,0 +1,72 @@
+* {
+  margin: 0;
+  padding: 0;
+  color: #e8e8e7;
+  font-family: 'Open Sans', sans-serif;
+}
+
+body{
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    display:flex;
+    background:#161616;
+    justify-content: center;
+}
+
+.topbar {
+  position:fixed;
+  display: flex;
+  background: #9520cc;
+  flex-direction: row;
+  order: -1;
+  height: 30px;
+  width: 100%;
+  border-radius: 1px;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+  align-items: flex-start;
+}
+
+.topbar #close {
+  position:fixed;
+  background: #f44242;
+  width: 12px;
+  height: 12px;
+  border-radius: 100%;
+  margin: 8px;
+  position: relative;
+}
+
+.message{
+  margin:0;
+  color:white;
+  padding:1em;
+  padding-top:2.3em;
+  font-size: 13px;
+
+}
+
+.okayButton{
+  text-align:center;
+  padding:0;
+  margin:0;
+  border-radius: 3px;
+  background: #3a3a3a;
+  position:absolute;
+  width:40%;
+  height:30px;
+  top:100px;
+  margin:auto;
+  -webkit-transition: all 0.5s;
+}
+
+.okayButton h1{
+  postion:relative;
+  font-size:4vw;
+  padding:0.3em;
+}
+
+.okayButton:hover{
+  background: #9520cc
+
+}

@@ -1,21 +1,13 @@
 const { dialog } = require('electron').remote
-var targz = require('tar.gz');
+const { ipcRenderer } = require('electron')
+const spawn = require('child_process').spawn;
 
+var extractScript = "./scripts/extract.sh"
 
-var deskoInstall = function(a,b){
-	targz().extract(a, b, function(err){
-	  if(err)
-	    console.log('Something is wrong ', err.stack);
-	dialog.showMessageBox(
-        {
-                type: 'info',
-                buttons: ['OK'],
-                title: 'Software Installed',
-                message: 'The Selected software has been installed',
-
-        })
-	//console.log('Job done!');
-	});
+var deskoInstall = function(archive,ePath){
+	ipcRenderer.send('show-popup');
+	spawn("sh",[extractScript,archive,ePath]);
+	ipcRenderer.send('end-popup');
 }
 
 export default deskoInstall

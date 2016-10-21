@@ -8,8 +8,8 @@ import deskoInstall from './extract.js';
 
 const Devtools = React.createClass({
   eclipse:function(){
-    deskoInstall('../archives/eclipse.tar.gz', process.env.HOME);
-  },
+	deskoInstall('../archives/eclipse.tar.gz', process.env.HOME);
+    },
   render:function(){
     return <div><h1 id="pageTitle">Developer Tools</h1>
     <div className="cardContainer">

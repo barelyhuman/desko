@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" />
+    <link href="../css/popup.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="topbar" style="-webkit-app-region:drag">
+    <div id="close" style="-webkit-app-region:no-drag"></div></div>
+    <div class="message">
+        <p> The app is being installed , please click "OK" and look in the home directory and wait till all the files are extracted</p></div>
+    <div class="okayButton" id="okay">
+      <h1>OK</h1>
+    </div>
+    <script>
+        const remote = require('electron').remote;
+
+          document.getElementById("close").addEventListener("click", function (e) {
+               var window = remote.getCurrentWindow();
+               window.close();
+          });
+          document.getElementById("okay").addEventListener("click", function (e) {
+               var window = remote.getCurrentWindow();
+               window.close();
+          });
+    </script>
+  </body>
+</html>
