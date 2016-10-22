@@ -7,7 +7,6 @@ var extractScript = "./scripts/extract.sh"
 var deskoInstall = function(archive,ePath){
 	ipcRenderer.send('show-popup');
 	spawn("sh",[extractScript,archive,ePath]);
-	ipcRenderer.send('end-popup');
 }
 
 export default deskoInstall

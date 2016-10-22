@@ -12,6 +12,7 @@ app.on('ready', function(){
     useContentSize:true,
     icon : './assets/appIcon.png'})
     mainWindow.loadURL(`file://${__dirname}/index.html`)
+    mainWindow.openDevTools()
 
 
   ipcMain.on('show-popup',function(){
